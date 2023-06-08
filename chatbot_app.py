@@ -1,4 +1,7 @@
-"""Ref.: https://www.analyticsvidhya.com/blog/2023/05/lets-build-your-gpt-chatbot-with-gradio/"""
+"""
+Usage: `gradio chatbot_app.py`
+
+Ref.: https://www.analyticsvidhya.com/blog/2023/05/lets-build-your-gpt-chatbot-with-gradio/"""
 
 import gradio as gr
 import openai
