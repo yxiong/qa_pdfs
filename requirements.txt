@@ -1,3 +1,6 @@
+chromadb
 gradio
+langchain
 openai
 pymupdf  # Including `fitz`
+pypdf  # Needed by langchain PyPDFLoader
