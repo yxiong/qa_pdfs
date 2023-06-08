@@ -1,3 +1,9 @@
+"""
+Usage: `gradio app.py`
+
+Ref.: https://www.analyticsvidhya.com/blog/2023/05/build-a-chatgpt-for-pdfs-with-langchain/#h-render-image-of-a-pdf-file
+"""
+
 import gradio as gr
 
 from langchain.chains import ConversationalRetrievalChain
@@ -13,6 +19,7 @@ from PIL import Image
 COUNT = 0
 N = 0
 chat_history = []
+chain = None
 
 def render_file(file):
     global N
@@ -47,7 +54,7 @@ def add_text(history, text):
     return history
 
 def generate_response(history, query, btn):
-    global COUNT, N, chat_history
+    global COUNT, N, chat_history, chain
 
     if COUNT == 0:
         chain = process_file(btn)
