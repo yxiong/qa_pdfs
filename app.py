@@ -76,20 +76,18 @@ with gr.Blocks() as demo:
             chatbot = gr.Chatbot(value=[], elem_id="chatbot").style(height=650)
         with gr.Column(scale=0.5):
             show_img = gr.Image(label="Upload PDF", tool="select").style(height=680)
-    # Second row: query, submit, and upload buttons.
+    # Second row: query and upload buttons.
     with gr.Row():
-        with gr.Column(scale=0.7):
+        with gr.Column(scale=0.85):
             txt = gr.Textbox(
                 show_label=False, placeholder="Enter text and press enter"
             ).style(container=False)
-        with gr.Column(scale=0.15):
-            submit_btn = gr.Button("Submit")
         with gr.Column(scale=0.15):
             upload_btn = gr.UploadButton("Upload a PDF", file_types=[".pdf"]).style()
 
     # Set up event handlers.
     upload_btn.upload(fn=render_first, inputs=[upload_btn], outputs=[show_img])
-    submit_btn.click(
+    txt.submit(
         fn=add_text,
         inputs=[chatbot, txt],
         outputs=[chatbot],
